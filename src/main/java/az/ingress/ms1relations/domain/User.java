@@ -18,18 +18,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
 @Builder
+@Data
 @AllArgsConstructor
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name = "users")
-
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    Long id;
+    Long userId;
 
     String name;
 
@@ -38,6 +37,7 @@ public class User {
     String email;
 
     String phoneNumber;
+
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     @Builder.Default
     List<Booking> bookingList = new ArrayList<>();

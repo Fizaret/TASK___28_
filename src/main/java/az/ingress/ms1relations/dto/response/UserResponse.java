@@ -1,18 +1,21 @@
 package az.ingress.ms1relations.dto.response;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserResponse {
 
-
-    Long id;
+    Long userId;
 
     String name;
 
@@ -22,5 +25,5 @@ public class UserResponse {
 
     String phoneNumber;
 
-    List<BookingResponse> booking;
+    List<BookingResponse> bookings;
 }

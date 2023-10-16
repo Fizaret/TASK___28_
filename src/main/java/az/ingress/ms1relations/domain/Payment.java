@@ -20,7 +20,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    Long id;
+    Long paymentId;
     Double paymentAmount;
 
     String paymentMethod;
