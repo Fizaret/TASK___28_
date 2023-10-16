@@ -57,7 +57,6 @@ public class BookingServiceImpl implements BookingService {
     private Payment getPaymentById(Long paymentId) {
         return paymentRepository.findById(paymentId).orElseThrow(() -> new RuntimeException(
                 String.format("Payment not found by id -%s", paymentId)));
-//        pwelofigubeiwolruibrnerol
     }
     private Booking createBooking(User user,Payment payment,BookingRequest bookingRequest) {
     Booking booking =modelMapper.map(bookingRequest,Booking.class);
