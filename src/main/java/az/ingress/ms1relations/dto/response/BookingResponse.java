@@ -26,7 +26,7 @@ public class BookingResponse {
 
     List<RentalCar> rentalCars;
 
-    PaymentResponse payment;
+    Long paymentId;
 
 
 

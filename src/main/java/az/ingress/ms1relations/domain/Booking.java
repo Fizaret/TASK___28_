@@ -48,4 +48,7 @@ public class Booking {
     @ToString.Exclude
     Payment payment;
 
+    public void setPaymentId(Long paymentId) {
+    }
+
 }

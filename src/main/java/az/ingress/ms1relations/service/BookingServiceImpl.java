@@ -5,6 +5,8 @@ import az.ingress.ms1relations.domain.Payment;
 import az.ingress.ms1relations.domain.User;
 import az.ingress.ms1relations.dto.request.BookingRequest;
 import az.ingress.ms1relations.dto.response.BookingResponse;
+import az.ingress.ms1relations.errors.ApplicationException;
+import az.ingress.ms1relations.errors.Errors;
 import az.ingress.ms1relations.repository.BookingRepository;
 import az.ingress.ms1relations.repository.PaymentRepository;
 import az.ingress.ms1relations.repository.UserRepository;
@@ -23,21 +25,21 @@ public class BookingServiceImpl implements BookingService {
     private final UserRepository userRepository;
     private final PaymentRepository paymentRepository;
 
+
 @Override
     public List<BookingResponse> findAll(){
-        List<BookingResponse>bookingResponses=bookingRepository
+    return bookingRepository
                 .findAll()
                 .stream()
                 .map(booking -> modelMapper.map(booking,BookingResponse.class))
                 .collect(Collectors.toList());
-        return bookingResponses;
 
     }
     @Override
     public BookingResponse findById(Long id){
-        Booking booking = bookingRepository.findById(id).orElseThrow(()-> new RuntimeException(
-                String.format("Booking not found by id -%s",id)
-        ));
+        Booking booking = bookingRepository.findById(id).orElseThrow(()->
+                new ApplicationException(Errors.BOOKING_NOT_FOUND));
+
         return modelMapper.map(booking,BookingResponse.class);
 
     }
@@ -60,7 +62,7 @@ public class BookingServiceImpl implements BookingService {
     }
     private Booking createBooking(User user,Payment payment,BookingRequest bookingRequest) {
     Booking booking =modelMapper.map(bookingRequest,Booking.class);
-    booking.setPayment(payment);
+    booking.setPaymentId(payment.getPaymentId());
     booking.setUser(user);
     return bookingRepository.save(booking);
     }

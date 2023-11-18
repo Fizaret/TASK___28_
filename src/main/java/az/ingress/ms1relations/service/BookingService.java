@@ -2,7 +2,6 @@ package az.ingress.ms1relations.service;
 
 import az.ingress.ms1relations.dto.request.BookingRequest;
 import az.ingress.ms1relations.dto.response.BookingResponse;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,8 +11,14 @@ import java.util.List;
 public interface BookingService {
     List<BookingResponse> findAll();
 
+
+
     BookingResponse findById(Long id);
-    BookingResponse save(Long userId, Long paymantId, BookingRequest bookingRequest);
+
+
+    BookingResponse save(Long userId, Long paymentId, BookingRequest bookingRequest);
+
+
 
     void delete(Long id);
 }
