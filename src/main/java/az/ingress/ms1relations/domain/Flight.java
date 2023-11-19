@@ -28,6 +28,7 @@ public class Flight {
 
     Long id;
 
+
     String flightNumber;
 
     String departureAirport;
@@ -45,4 +46,9 @@ public class Flight {
     Booking booking;
 
 
+    public void setUser(User user) {
+    }
+    public void setPaymentId(Long payment){
+
+    }
 }

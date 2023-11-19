@@ -1,5 +1,6 @@
 package az.ingress.ms1relations.domain;
 
+import az.ingress.ms1relations.dto.request.HotelRequest;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -30,4 +31,10 @@ public class Hotel {
     @ToString.Exclude
     Booking booking;
 
+
+    public void setPaymentId(Long paymentId) {
+    }
+
+    public void setUser(User user) {
+    }
 }

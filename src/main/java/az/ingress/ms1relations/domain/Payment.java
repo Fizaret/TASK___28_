@@ -29,6 +29,8 @@ public class Payment {
 
     @OneToOne(mappedBy = "payment")
     Booking booking;
+ public void setUser(User user){
 
+ }
 
 }

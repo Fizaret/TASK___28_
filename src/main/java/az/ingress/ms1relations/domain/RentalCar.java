@@ -39,4 +39,9 @@ public class RentalCar {
     Booking booking;
 
 
+    public void setPaymentId(Long paymentId) {
+    }
+
+    public void setUser(User user) {
+    }
 }
